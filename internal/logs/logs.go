@@ -21,5 +21,6 @@ func Configure(debug bool) zerolog.Logger {
 		zl = zerolog.New(os.Stderr).With().Timestamp().Logger()
 
 	})
+	zl.Print("Logger has been configured.")
 	return zl
 }
