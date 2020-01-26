@@ -2,6 +2,8 @@ package version
 
 import "fmt"
 
+var version = "0.1.0"
+
 func Print() {
-	fmt.Println("0.1.0")
+	fmt.Println(version)
 }
