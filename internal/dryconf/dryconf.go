@@ -12,6 +12,7 @@ import (
 
 var logger zerolog.Logger
 
+// Generate core function that will generate the configuraion file. This is the place where it all starts
 func Generate() {
 
 	flags.Parse()
