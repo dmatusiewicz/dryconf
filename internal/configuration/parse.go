@@ -4,6 +4,7 @@ import "fmt"
 
 type lm []map[string]string
 
+// Parse costam
 func convertConfig(c interface{}) lm {
 	var ret_val lm
 	ai, ok := c.([]interface{})
@@ -25,6 +26,7 @@ func convertConfig(c interface{}) lm {
 	return ret_val
 }
 
+// Parse costam
 func (c Configuration) Parse() (b error) {
 	for k, v := range c.ch {
 		if k != "conf" {

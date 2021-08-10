@@ -1,10 +1,11 @@
 package configuration
 
 import (
-	"github.com/goccy/go-yaml"
-	"github.com/rs/zerolog"
+	"github.com/dmatusiewicz/dryconf/internal/logs"
+	"gopkg.in/yaml.v2"
 )
 
+// Configuration costam
 type Configuration struct {
 	ch map[string]interface{}
 	co interface{}
@@ -12,9 +13,10 @@ type Configuration struct {
 
 var yc Configuration
 
-var logger zerolog.Logger
+var logger logs.Log
 
-func Load(l zerolog.Logger, config string) error {
+// Load costam
+func Load(l logs.Log, config string) error {
 	logger = l
 	logger.Printf("Loading config file: %s", config)
 	d, err := loadfile(config)

@@ -7,10 +7,15 @@ import (
 	"github.com/rs/zerolog"
 )
 
-var zl zerolog.Logger
+type Log interface {
+	Printf(format string, v ...interface{})
+	Print(v ...interface{})
+	Fatal() *zerolog.Event
+}
 
-func Configure(debug bool) zerolog.Logger {
+func Configure(debug bool) Log {
 	var once sync.Once
+	var zeroLogInterface Log
 	once.Do(func() {
 
 		if debug {
@@ -18,9 +23,10 @@ func Configure(debug bool) zerolog.Logger {
 		} else {
 			zerolog.SetGlobalLevel(zerolog.InfoLevel)
 		}
-		zl = zerolog.New(os.Stderr).With().Timestamp().Logger()
+		zeroLogObject := zerolog.New(os.Stderr).With().Timestamp().Logger()
+		zeroLogInterface = &zeroLogObject
 
 	})
-	zl.Print("Logger has been configured.")
-	return zl
+	zeroLogInterface.Print("Logger has been configured.")
+	return zeroLogInterface
 }

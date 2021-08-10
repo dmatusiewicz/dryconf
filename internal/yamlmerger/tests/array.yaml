@@ -1,0 +1,30 @@
+---
+key1:
+  - key11
+  - key12
+key3:
+  - key31
+  - key32
+  - key3X
+---
+key2:
+  - key21
+  - key22
+key3:
+  - key33
+  - key34
+  - key35
+---
+key1:
+- key11
+- key12
+key2:
+- key21
+- key22
+key3:
+- key31
+- key32
+- key3X
+- key33
+- key34
+- key35
